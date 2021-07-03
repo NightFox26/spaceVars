@@ -1,0 +1,115 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    padding: 0;    
+}
+
+.bgAll{
+    background-color: #20252a;
+    height: 100vh;
+    display: flex;
+}
+
+header img{
+    width: 450px;
+}
+
+#game{    
+    width: 900px;
+    height: 550px;
+    border: 1px gray solid;     
+    box-shadow: 0 0 4px 12px grey;
+    overflow: hidden;
+}
+
+#game .bg1{  
+    width: 2700px;
+    height: 550px;
+    position: absolute;
+    left: 0;
+    background-image: url("../image/bg_space_all.jpg");
+    background-repeat: repeat-x;
+    background-size: 2700px 550px;
+    animation: bgScroll 8s linear infinite;  
+    box-shadow: inset 0 10px 20px 14px #131313, inset 0 -10px 20px 14px #131313;
+    z-index: 1;
+}
+
+#game #sprites{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 2;
+}
+
+#game #player{
+    display: inline-block;
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: 0;
+    top: 0;
+}
+
+#game .enemy{
+    display: inline-block;
+    position: absolute;
+    width: 0;
+    height: 0;
+    right: 0;
+    top: 0;
+    transform: rotate(0deg);
+    animation: enemyRotate 2s linear forwards infinite;
+}
+
+#game .playerBullet{
+    display: inline-block;
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: 0;
+    top: 0;
+    transform: scale(1,1);
+    animation: animBullet 0.5s linear forwards infinite;
+}
+
+.centered{
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+@keyframes bgScroll {
+    from {
+        left: 0;
+    }
+
+    to{
+        left: -1800px
+    }
+}
+
+@keyframes enemyRotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+
+@keyframes animBullet {
+    from {
+        transform: scale(1,1);;
+    }
+
+    to{
+        transform: scale(1.5,1.5);
+    }
+}
